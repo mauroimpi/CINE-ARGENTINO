@@ -1,11 +1,12 @@
 <?php
-$servidor = "localhost";
-$usuario = "mercedes";
-$contraseña = "Tc)KzWrJ3zLlLZpK";
-$base_de_datos = "usuarios";
+// Configuración de la base de datos
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'mercedes');
+define('DB_PASSWORD', 'Tc)KzWrJ3zLlLZpK');
+define('DB_NAME', 'usuarios');
 
-// Crear conexión
-$conexion = mysqli_connect($servidor, $usuario, $contraseña, $base_de_datos);
+// Establecer conexión
+$conexion = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 // Verificar conexión
 if (!$conexion) {
@@ -15,5 +16,5 @@ if (!$conexion) {
 // Configurar charset
 mysqli_set_charset($conexion, "utf8mb4");
 
-// No cierres la conexión aquí, déjala abierta
+// No cerrar la conexión aquí
 ?>
