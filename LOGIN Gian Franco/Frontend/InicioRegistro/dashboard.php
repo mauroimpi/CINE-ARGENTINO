@@ -72,6 +72,7 @@ $usuario = $_SESSION['usuario'];
             <p><strong>Nombre de usuario:</strong> <?php echo htmlspecialchars($usuario['usuario']); ?></p>
             <p><strong>Correo electrónico:</strong> <?php echo htmlspecialchars($usuario['correo']); ?></p>
             <p><strong>Miembro desde:</strong> <?php echo date('d/m/Y', strtotime($usuario['registro'])); ?></p>
+            
         </div>
 
         <a href="logout.php" class="btn-logout">Cerrar sesión</a>

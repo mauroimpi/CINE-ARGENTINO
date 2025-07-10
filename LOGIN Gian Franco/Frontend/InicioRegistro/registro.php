@@ -47,16 +47,29 @@ if(isset($_POST['registro'])) {
             $sql = "INSERT INTO usuarios (nombre, apellido, nombre_usuario, correo, contrasena) 
                     VALUES ('{$datos['nombre']}', '{$datos['apellido']}', '{$datos['nombre_usuario']}', '{$datos['correo']}', '{$datos['contrasena']}')";
 
-            if(mysqli_query($conexion, $sql)) {
-                $nuevo_id = mysqli_insert_id($conexion);
-                echo "<script>
-                        alert('✅ Registro exitoso\\\\n\\\\nID: $nuevo_id\\\\nUsuario: {$datos['nombre_usuario']}\\\\nCorreo: {$datos['correo']}');
-                        window.location.href = 'login.html';
-                      </script>";
-                exit;
-            } else {
-                $errores[] = "Error al registrar: " . mysqli_error($conexion);
-            }
+        if(mysqli_query($conexion, $sql)) {
+            $nuevo_id = mysqli_insert_id($conexion);
+            echo "<script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>";
+            echo "<script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '✅ Registro exitoso',
+                        html: '<b>Usuario:</b> {$datos['nombre_usuario']}<br><b>Correo:</b> {$datos['correo']}',
+                        confirmButtonText: 'Continuar',
+                        confirmButtonColor: '#3085d6',
+                        backdrop: true
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = 'login.html';
+                        }
+                    });
+                });
+            </script>";
+            exit;
+        } else {
+            $errores[] = "Error al registrar: " . mysqli_error($conexion);
+        }
         }
     }
 
