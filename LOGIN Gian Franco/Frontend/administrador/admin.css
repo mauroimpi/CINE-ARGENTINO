@@ -1,0 +1,488 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #292f33;
+  display: flex;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Panel lateral (header convertido en sidebar) */
+.sidebar {
+  width: 160px;
+  background-color: #e50914;
+  color: white;
+  padding-top: 60px; /* para dejar espacio al top-menu */
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+.titulo-superior {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-right: auto; 
+}
+
+
+
+.sidebar nav ul {
+  margin-top: 60px;
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+    
+  padding: 15px 20px;
+}
+
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.sidebar nav ul li:hover {
+  background-color: #221f1f;
+}
+
+/* Menú superior */
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 160px;
+  right: 0;
+  height: 60px;
+  background-color: #e50914;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 20px;
+  z-index: 10;
+}
+
+
+/* Íconos del top-menu */
+.top-menu i {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+.user-menu {
+  position: relative;
+}
+
+.user-menu i {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilo del dropdown */
+.user-menu .dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background-color: #221f1f;
+  border: 1px solid #ccc;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 20;
+}
+
+.user-menu .dropdown a {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+}
+
+.user-menu .dropdown a:hover {
+  background-color: #e50914;
+}
+
+/* Mostrar dropdown al pasar el mouse */
+.user-menu:hover .dropdown {
+  display: flex;
+}
+
+/* Main content */
+#main-content {
+  margin-left: 160px; /* igual al ancho del sidebar */
+  margin-top: 60px; /* igual al alto del top-menu */
+  padding: 20px;
+  flex: 1;
+}
+
+.seccion {
+  display: none;
+  font-size: 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.seccion.activa {
+  display: block;
+}
+
+/*inicio*/
+
+.titulo-inicio {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.info-inicio {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  background-color: white;
+  align-items: stretch;
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+}
+
+.info-inicio p {
+  flex: 1;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .info-inicio {
+    flex-direction: column;
+  }
+}
+
+
+/*registros*/
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.descripcion-usuarios {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #ccc;
+}
+
+.tabla-contenedor {
+  overflow-x: auto;
+}
+
+.tabla-usuarios {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tabla-usuarios th,
+.tabla-usuarios td {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.tabla-usuarios thead {
+  background-color: #e50914;
+  color: #fff;
+}
+
+.tabla-usuarios tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.btn-eliminar {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-eliminar:hover {
+  background-color: #d32f2f;
+}
+
+/*peliculas*/
+.categorias-peliculas {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btn-categoria {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-categoria:hover {
+  background-color: #e31d27;
+}
+
+.tabla-categoria {
+  margin-top: 20px;
+}
+
+.tabla-peliculas {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+.tabla-peliculas th,
+.tabla-peliculas td {
+    
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 200px;
+  max-width: 200px;
+  vertical-align: top;
+  text-align: left;
+  word-wrap: break-word;
+}
+/* Centrar la imagen dentro de su celda */
+.tabla-peliculas td img {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.tabla-peliculas th {
+  background-color: #e50914;
+  color: white;
+  text-align: left;
+}
+
+.tabla-peliculas img {
+  width: 200px;
+  height: auto;
+  border-radius: 6px;
+}
+
+/*buscar*/
+
+.barra-busqueda {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.barra-busqueda input {
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.barra-busqueda button {
+  background-color: #e50914;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.opciones-busqueda {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.opciones-busqueda button {
+  padding: 10px 20px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tabla-busqueda {
+  margin-top: 20px;
+}
+#opcion-peliculas label{
+    color:#ccc;
+}
+#categoria-select {
+  width: 60%;
+  max-width: 400px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+/*agregar*/
+.seleccion-categoria {
+  margin: 20px 0;
+}
+
+#select-categoria {
+  width: 60%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+.categoria{
+    color: #ccc;
+}
+.descripcion-agregar{
+    color: #ccc;
+}
+
+.formulario-pelicula {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-top: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.campo-form {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-form label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.campo-form input,
+.campo-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.btn-agregar {
+  padding: 10px 20px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+  background-color: #e0232c;
+}
+#select-categoria-modificar {
+  width: 60%;
+  max-width: 400px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+#select-categoria-eliminar{
+  
+  width: 60%;
+  max-width: 400px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+/*botones del eliminar*/
+#eliminar .btn-agregar {
+  background-color: #c0392b;
+}
+
+#eliminar .btn-agregar:hover {
+  background-color: #e74c3c;
+}
+
+/*salir del admin*/
+#salir {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.mensaje-salir {
+  font-size: 18px;
+  margin: 20px 0;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.contenedor-link-salir {
+  margin-top: 30px;
+}
+
+.btn-salir {
+  display: inline-block;
+  background-color: #e0232c;
+  color: white;
+  padding: 12px 30px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-salir:hover {
+  background-color: #e23b44;
+}
