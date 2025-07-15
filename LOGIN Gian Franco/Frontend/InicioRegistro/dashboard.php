@@ -17,45 +17,7 @@ $usuario = $_SESSION['usuario'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $titulo; ?></title>
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .alert-success {
-            background-color: #d4edda;
-            color: #155724;
-            padding: 10px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-        .user-info {
-            margin-bottom: 20px;
-        }
-        .btn-logout {
-            display: inline-block;
-            background: #dc3545;
-            color: white;
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        .btn-logout:hover {
-            background: #c82333;
-        }
-    </style>
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
     <div class="container">

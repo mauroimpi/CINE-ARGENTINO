@@ -17,4 +17,5 @@ if (!$conexion) {
 mysqli_set_charset($conexion, "utf8mb4");
 
 // No cerrar la conexión aquí
-?>
+
+?> 
